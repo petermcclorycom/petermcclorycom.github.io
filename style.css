@@ -58,7 +58,7 @@ body, html {
 /* Desktop: 3 columns */
 @media (min-width: 1024px) {
     .gallery {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         grid-gap: 1px;
     }
 }
@@ -78,7 +78,7 @@ body, html {
 }
 
 .gallery-item:hover {
-    transform: scale(3); /* Scale up the container */
+    transform: scale(2); /* Scale up the container */
     z-index: 1; /* Bring the hovered item to the front */
     position: relative;
 }
