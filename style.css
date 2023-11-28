@@ -5,17 +5,36 @@ body, html {
     color: white;
 }
 
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 20px 0;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin: 0 10%;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    text-align: justify;
+}
+
 .gallery {
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 1px;
     padding: 5px;
     justify-content: center;
 }
 
-/* Responsive grid columns */
 @media (min-width: 1024px) {
     .gallery {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
@@ -35,7 +54,7 @@ body, html {
     position: relative;
     overflow: hidden;
     transition: transform 0.5s ease-out;
-    z-index: 0; /* Reset z-index */
+    z-index: 0;
 }
 
 .gallery-item img {
@@ -43,63 +62,16 @@ body, html {
     height: auto;
     object-fit: cover;
     transition: transform 0.5s ease-out;
-    transform-origin: center; /* Set transform origin to center */
-}
-
-
-/* Desktop: 3 columns */
-@media (min-width: 1024px) {
-    .gallery {
-        grid-template-columns: repeat(6, 1fr);
-        grid-gap: 1px;
-    }
-}
-
-/* iPad: 2 columns */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .gallery-item {
-        flex: 1 1 calc(50% - 10px);
-    }
-}
-
-/* Mobile: 1 column */
-@media (max-width: 767px) {
-    .gallery-item {
-        flex: 1 1 100%;
-    }
+    transform-origin: center;
 }
 
 .gallery-item:hover {
-    transform: scale(3); /* Scale up the container */
-    z-index: 1; /* Bring the hovered item to the front */
+    transform: scale(3);
+    z-index: 1;
     position: relative;
 }
 
-/* Additional styling to ensure image expands to its natural size */
 .gallery-item:hover img {
-    transform: scale(1); /* Reset image scale */
-    width: auto; /* Allow natural width */
-    height: auto; /* Allow natural height */
-    max-width: none; /* Override any max-width settings */
-    max-height: none; /* Override any max-height settings */
-}
-
-header {
-    text-align: center;
-    margin-bottom: 50px; /* Spacing below the header */
-}
-
-h1 {
-    font-size: 3em; /* Large font size for H1 */
-    margin: 20px 0; /* Spacing around the H1 */
-    font-family: 'Arial', sans-serif; /* Minimal font, replace with your preference */
-    color: white; /* Font color */
-}
-
-h2 {
-    font-size: 1.2em; /* Font size for H2 */
-    margin: 0 10%; /* Spacing around the H2 */
-    font-family: 'Arial', sans-serif; /* Consistent font with H1 */
-    color: white; /* Font color */
-    text-align: justify; /* Justify text for better readability */
-}
+    transform: scale(1);
+    width: auto;
+    height: auto;
