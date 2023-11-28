@@ -83,3 +83,23 @@ body, html {
     max-width: none; /* Override any max-width settings */
     max-height: none; /* Override any max-height settings */
 }
+
+header {
+    text-align: center;
+    margin-bottom: 50px; /* Spacing below the header */
+}
+
+h1 {
+    font-size: 3em; /* Large font size for H1 */
+    margin: 20px 0; /* Spacing around the H1 */
+    font-family: 'Arial', sans-serif; /* Minimal font, replace with your preference */
+    color: white; /* Font color */
+}
+
+h2 {
+    font-size: 1.2em; /* Font size for H2 */
+    margin: 0 10%; /* Spacing around the H2 */
+    font-family: 'Arial', sans-serif; /* Consistent font with H1 */
+    color: white; /* Font color */
+    text-align: justify; /* Justify text for better readability */
+}
