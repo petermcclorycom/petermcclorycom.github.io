@@ -3,75 +3,87 @@ body, html {
     padding: 0;
     background-color: black;
     color: white;
+    font-family: Arial, sans-serif;
 }
 
 header {
     text-align: center;
-    margin-bottom: 50px;
-}
-
-h1 {
-    font-size: 3em;
-    margin: 20px 0;
-    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
     color: white;
-}
-
-h2 {
-    font-size: 1.2em;
-    margin: 0 10%;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    text-align: justify;
 }
 
 .gallery {
     display: grid;
-    grid-gap: 1px;
-    padding: 5px;
-    justify-content: center;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 0;
+    padding: 0;
+    width: 100vw;
+    height: calc(100vh - 60px);
 }
 
-@media (min-width: 1024px) {
-    .gallery {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 767px) {
-    .gallery {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
+/* Grid area assignments */
+/* Grid area assignments for each image */
+#img01 { grid-area: 1 / 1 / 2 / 4; }
+#img02 { grid-area: 1 / 4 / 2 / 7; }
+#img03 { grid-area: 1 / 7 / 2 / 10; }
+#img04 { grid-area: 1 / 10 / 2 / 13; }
+#img05 { grid-area: 2 / 1 / 3 / 4; }
+#img06 { grid-area: 2 / 4 / 3 / 7; }
+#img07 { grid-area: 2 / 7 / 3 / 10; }
+#img08 { grid-area: 2 / 10 / 3 / 13; }
+#img09 { grid-area: 3 / 1 / 4 / 5; }
+#img10 { grid-area: 3 / 5 / 4 / 9; }
+#img11 { grid-area: 3 / 9 / 4 / 13; }
+#img12 { grid-area: 4 / 1 / 5 / 4; }
+#img13 { grid-area: 4 / 4 / 5 / 7; }
+#img14 { grid-area: 4 / 7 / 5 / 10; }
+#img15 { grid-area: 4 / 10 / 5 / 13; }
+#img16 { grid-area: 5 / 1 / 6 / 5; }
+#img17 { grid-area: 5 / 5 / 6 / 9; }
+#img18 { grid-area: 5 / 9 / 6 / 13; }
+#img19 { grid-area: 6 / 1 / 7 / 4; }
+#img20 { grid-area: 6 / 4 / 7 / 7; }
+#img21 { grid-area: 6 / 7 / 7 / 10; }
+#img22 { grid-area: 6 / 10 / 7 / 13; }
 
 .gallery-item {
     position: relative;
-    overflow: hidden;
-    transition: transform 0.5s ease-out;
-    z-index: 0;
 }
 
 .gallery-item img {
     width: 100%;
     height: auto;
-    object-fit: cover;
-    transition: transform 0.5s ease-out;
-    transform-origin: center;
+    display: block;
 }
 
-.gallery-item:hover {
-    transform: scale(1.1);
-    z-index: 1;
-    position: relative;
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Brush Script MT', cursive; /* Example script font */
+    padding: 10px;
+}
+
+/* 3D Spin Hover Effect */
+.gallery-item {
+    perspective: 1000px;
+}
+
+.gallery-item img, .gallery-item .description {
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
 }
 
 .gallery-item:hover img {
-    transform: scale(1);
-    width: auto;
-    height: auto;
+    transform: rotateY(-180deg);
+}
+
+.gallery-item:hover .description {
+    transform: rotateY(0deg);
+}
