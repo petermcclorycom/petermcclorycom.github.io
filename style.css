@@ -14,37 +14,37 @@ header {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+    grid-auto-rows: 100px; /* Adjust based on your preference */
     grid-gap: 0;
     padding: 0;
     width: 100vw;
     height: calc(100vh - 60px);
 }
 
-/* Grid area assignments */
-/* Grid area assignments for each image */
-#img01 { grid-area: 1 / 1 / 2 / 4; }
-#img02 { grid-area: 1 / 4 / 2 / 7; }
-#img03 { grid-area: 1 / 7 / 2 / 10; }
-#img04 { grid-area: 1 / 10 / 2 / 13; }
-#img05 { grid-area: 2 / 1 / 3 / 4; }
-#img06 { grid-area: 2 / 4 / 3 / 7; }
-#img07 { grid-area: 2 / 7 / 3 / 10; }
-#img08 { grid-area: 2 / 10 / 3 / 13; }
-#img09 { grid-area: 3 / 1 / 4 / 5; }
-#img10 { grid-area: 3 / 5 / 4 / 9; }
-#img11 { grid-area: 3 / 9 / 4 / 13; }
-#img12 { grid-area: 4 / 1 / 5 / 4; }
-#img13 { grid-area: 4 / 4 / 5 / 7; }
-#img14 { grid-area: 4 / 7 / 5 / 10; }
-#img15 { grid-area: 4 / 10 / 5 / 13; }
-#img16 { grid-area: 5 / 1 / 6 / 5; }
-#img17 { grid-area: 5 / 5 / 6 / 9; }
-#img18 { grid-area: 5 / 9 / 6 / 13; }
-#img19 { grid-area: 6 / 1 / 7 / 4; }
-#img20 { grid-area: 6 / 4 / 7 / 7; }
-#img21 { grid-area: 6 / 7 / 7 / 10; }
-#img22 { grid-area: 6 / 10 / 7 / 13; }
+/* Custom grid area assignments for each image */
+#img01 { grid-area: 1 / 1 / 3 / 5; }
+#img02 { grid-area: 1 / 5 / 3 / 9; }
+#img03 { grid-area: 1 / 9 / 3 / 13; }
+#img04 { grid-area: 1 / 13 / 3 / 17; }
+#img05 { grid-area: 3 / 1 / 5 / 5; }
+#img06 { grid-area: 3 / 5 / 5 / 9; }
+#img07 { grid-area: 3 / 9 / 5 / 13; }
+#img08 { grid-area: 3 / 13 / 5 / 17; }
+#img09 { grid-area: 5 / 1 / 7 / 5; }
+#img10 { grid-area: 5 / 5 / 7 / 9; }
+#img11 { grid-area: 5 / 9 / 7 / 13; }
+#img12 { grid-area: 5 / 13 / 7 / 17; }
+#img13 { grid-area: 7 / 1 / 9 / 5; }
+#img14 { grid-area: 7 / 5 / 9 / 9; }
+#img15 { grid-area: 7 / 9 / 9 / 13; }
+#img16 { grid-area: 7 / 13 / 9 / 17; }
+#img17 { grid-area: 9 / 1 / 11 / 5; }
+#img18 { grid-area: 9 / 5 / 11 / 9; }
+#img19 { grid-area: 9 / 9 / 11 / 13; }
+#img20 { grid-area: 9 / 13 / 11 / 17; }
+#img21 { grid-area: 11 / 1 / 13 / 5; }
+#img22 { grid-area: 11 / 5 / 13 / 9; }
 
 .gallery-item {
     position: relative;
@@ -52,7 +52,8 @@ header {
 
 .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 
@@ -65,7 +66,7 @@ header {
     color: white;
     text-align: center;
     font-style: italic;
-    font-family: 'Brush Script MT', cursive; /* Example script font */
+    font-family: 'Brush Script MT', cursive;
     padding: 10px;
 }
 
