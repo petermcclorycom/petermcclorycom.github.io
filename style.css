@@ -33,13 +33,15 @@ body, html {
 
 .gallery-item {
     position: relative;
-    overflow: hidden; /* To contain the image scaling */
+    overflow: hidden;
+    transition: transform 0.5s ease-out;
+    z-index: 0; /* Reset z-index */
 }
 
 .gallery-item::before {
     content: '';
     display: block;
-    padding-top: 100%; /* This creates a square */
+    padding-top: 100%; /* Square aspect ratio */
 }
 
 .gallery-item img {
@@ -48,15 +50,16 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This ensures the image covers the square area */
+    object-fit: cover;
     transition: transform 0.5s ease-out;
 }
 
 
 /* Desktop: 3 columns */
 @media (min-width: 1024px) {
-    .gallery-item {
-        flex: 1 1 calc(33.33% - 10px);
+    .gallery {
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 1px;
     }
 }
 
@@ -74,10 +77,12 @@ body, html {
     }
 }
 
-.gallery-item:hover img {
-    transform: scale(1.5);
+.gallery-item:hover {
+    transform: scale(3); /* Scale up the container */
+    z-index: 1; /* Bring the hovered item to the front */
+    position: relative;
 }
 
-.gallery-item:hover {
-    z-index: 1;
+.gallery-item:hover img {
+    transform: scale(1); /* Keep the image size within the container */
 }
