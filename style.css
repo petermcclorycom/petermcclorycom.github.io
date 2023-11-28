@@ -6,22 +6,52 @@ body, html {
 }
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-gap: 5px;
     padding: 5px;
     justify-content: center;
 }
 
+/* Responsive grid columns */
+@media (min-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 .gallery-item {
-    margin: 5px;
-    transition: transform 0.5s ease;
+    position: relative;
+    overflow: hidden; /* To contain the image scaling */
+}
+
+.gallery-item::before {
+    content: '';
+    display: block;
+    padding-top: 100%; /* This creates a square */
 }
 
 .gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
+    object-fit: cover; /* This ensures the image covers the square area */
+    transition: transform 0.5s ease-out;
 }
+
 
 /* Desktop: 3 columns */
 @media (min-width: 1024px) {
@@ -44,11 +74,10 @@ body, html {
     }
 }
 
-.gallery-item:hover {
-    transform: scale(1.1);
-    z-index: 1;
+.gallery-item:hover img {
+    transform: scale(1.5);
 }
 
-.gallery-item:not(:hover) {
-    transform: scale(0.9);
+.gallery-item:hover {
+    z-index: 1;
 }
