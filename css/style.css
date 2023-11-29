@@ -26,11 +26,20 @@ body {
     border-radius: 15px;
     display: block; /* Ensures no extra space below images */
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .gallery-item img:hover {
     transform: scale(1.05);
+}
+
+.gallery-item:hover img {
+    opacity: 0.3; /* Reduce opacity of the hovered image */
+}
+
+/* Reset opacity for non-hovered images */
+.gallery-item img:not(:hover) {
+    opacity: 1;
 }
 
 /* Modal Image Gallery */
