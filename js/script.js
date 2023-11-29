@@ -3,9 +3,21 @@ function openModal(imageSrc) {
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
 
-    modal.style.display = "block";
+    modal.style.display = "flex"; // Changed to 'flex' for centering
     modalImg.src = imageSrc;
     captionText.innerHTML = imageSrc.split('/').pop();
+
+    modalImg.onload = function() {
+        if (modalImg.naturalWidth > modalImg.naturalHeight) {
+            // Landscape
+            modalImg.style.height = 'auto';
+            modalImg.style.width = '100%';
+        } else {
+            // Portrait or square
+            modalImg.style.width = 'auto';
+            modalImg.style.height = '100%';
+        }
+    };
 
     // When the user clicks anywhere outside of the modalImg, close it
     window.onclick = function(event) {
