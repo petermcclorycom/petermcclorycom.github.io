@@ -27,39 +27,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Medium screens (e.g., tablets) - 3 columns */
-@media screen and (max-width: 800px) {
-    .gallery {
-        column-count: 3;
-    }
-}
-
-/* Larger screens - 4 columns */
-@media screen and (max-width: 1024px) {
-    .gallery {
-        column-count: 4;
-    }
-}
-
-/* Large screens - 5 columns */
-@media screen and (min-width: 1025px) {
-    .gallery {
-        column-count: 5;
-    }
-}
-
-
-/* ... Rest of your CSS ... */
-
-@media screen and (max-width: 1920px) {
-    .gallery {
-        column-count: 5; /* Adjust the number of columns for wide screens */
-    }
-}
-
-/* ... Additional media queries for responsiveness ... */
-
-
 .gallery-item img:hover {
     transform: scale(1.05);
 }
@@ -103,8 +70,24 @@ body {
     cursor: pointer;
 }
 
-@media screen and (max-width: 1920px) {
+/* Responsive Layout Adjustments */
+/* Medium screens (e.g., tablets) - 3 columns */
+@media screen and (max-width: 800px) {
     .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        column-count: 3;
+    }
+}
+
+/* Larger screens - 4 columns */
+@media screen and (max-width: 1024px) {
+    .gallery {
+        column-count: 4;
+    }
+}
+
+/* Large screens - 5 columns */
+@media screen and (min-width: 1025px) {
+    .gallery {
+        column-count: 5;
     }
 }
