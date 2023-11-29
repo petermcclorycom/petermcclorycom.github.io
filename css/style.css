@@ -86,7 +86,7 @@ body {
 }
 
 /* Very Large screens - 5 columns */
-@media screen and (min-width: 1921px) {
+@media screen and (min-width: 1200px) {
     .gallery {
         column-count: 5;
     }
