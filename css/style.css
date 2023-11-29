@@ -100,43 +100,9 @@ footer {
     height: 7vh;
 }
 
-.image-container {
-    perspective: 1000px;
-    position: relative;
-    cursor: pointer;
-    width: 100%; /* Ensure this is set */
-    height: auto; /* Adjust based on your content */
-    margin-bottom: 15px; /* Space between items */
-}
-
-.image-container img, .image-container .description-text {
-    transition: transform 0.5s, opacity 0.5s;
-    backface-visibility: hidden;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-}
-
-.image-container .description-text {
-    transform: rotateY(180deg);
-    opacity: 0;
+.description-text {
     font-size: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.7); /* Optional: for better readability */
-    color: white; /* Optional: text color */
-    padding: 10px; /* Optional: for text padding */
-}
-
-.image-container.spin .description-text {
-    transform: rotateY(0);
-    opacity: 1;
-}
-
-.image-container.spin img {
-    transform: rotateY(-180deg);
+    margin-top: 10px; /* Space between image and text */
+    color: black; /* Text color */
+    /* Other styling as needed */
 }
