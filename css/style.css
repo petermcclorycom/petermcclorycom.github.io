@@ -104,6 +104,9 @@ footer {
     perspective: 1000px;
     position: relative;
     cursor: pointer;
+    width: 100%; /* Ensure this is set */
+    height: auto; /* Adjust based on your content */
+    margin-bottom: 15px; /* Space between items */
 }
 
 .image-container img, .image-container .description-text {
