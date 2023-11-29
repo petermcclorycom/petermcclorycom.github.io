@@ -6,7 +6,7 @@ body {
 }
 
 .gallery {
-    column-count: 4; /* Number of columns */
+    column-count: 1; /* Default for mobile sizes */
     column-gap: 15px; /* Spacing between columns */
     padding: 15px; /* Padding around the gallery */
     max-width: 100%; /* Maximum width */
@@ -26,6 +26,28 @@ body {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
+
+/* Medium screens (e.g., tablets) - 3 columns */
+@media screen and (max-width: 800px) {
+    .gallery {
+        column-count: 3;
+    }
+}
+
+/* Larger screens - 4 columns */
+@media screen and (max-width: 1024px) {
+    .gallery {
+        column-count: 4;
+    }
+}
+
+/* Large screens - 5 columns */
+@media screen and (min-width: 1025px) {
+    .gallery {
+        column-count: 5;
+    }
+}
+
 
 /* ... Rest of your CSS ... */
 
