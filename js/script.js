@@ -1,4 +1,8 @@
+var modalOpen = false;
+
 function openModal(imageSrc) {
+    if (modalOpen) return; // Prevent opening if modal is already open or in cooldown
+
     var modal = document.getElementById("myModal");
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
@@ -7,15 +11,24 @@ function openModal(imageSrc) {
     modal.style.display = "flex";
     modalImg.src = imageSrc;
     captionText.innerHTML = imageSrc.split('/').pop();
+    modalOpen = true; // Set modal as open
 
-    // Event listener for the close button (click)
     closeButton.onclick = function() {
         modal.style.display = "none";
+        modalOpen = false;
+        // Delay before allowing modal to be reopened
+        setTimeout(function() {
+            modalOpen = true;
+        }, 300); // 300 milliseconds delay
     };
 
-    // Additional event listener for touch events
+    // Touch event for mobile devices
     closeButton.ontouchstart = function() {
         modal.style.display = "none";
+        modalOpen = false;
+        setTimeout(function() {
+            modalOpen = true;
+        }, 300);
     };
 
     modalImg.onload = function() {
