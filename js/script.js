@@ -63,7 +63,7 @@ galleryImages.forEach((image) => {
         // Reduce opacity for all other images
         galleryImages.forEach((otherImage) => {
             if (otherImage !== image) {
-                otherImage.style.opacity = 0.7;
+                otherImage.style.opacity = 0.2;
             }
         });
     });
