@@ -96,9 +96,9 @@ body {
 footer {
     position: sticky;
     bottom: 0;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4); /* Black with 40% opacity */
     color: white;
     text-align: center;
-    line-height: 10vh; /* 10% of the viewport height */
-    height: 10vh;
+    line-height: 7vh; /* 7% of the viewport height */
+    height: 7vh;
 }
