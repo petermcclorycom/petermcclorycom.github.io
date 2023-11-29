@@ -9,14 +9,14 @@ body {
 
 .gallery {
     column-count: 1; /* Default for mobile sizes */
-    column-gap: 15px; /* Spacing between columns */
+    column-gap: 45px; /* Adjusted spacing between columns (three times more space) */
     padding: 15px; /* Padding around the gallery */
     max-width: 100%; /* Maximum width */
 }
 
 .gallery-item {
     break-inside: avoid; /* Prevents breaking within an item */
-    margin-bottom: 15px; /* Spacing below each item */
+    margin-bottom: 45px; /* Adjusted spacing below each item (three times more space) */
     display: inline-block; /* Ensures proper spacing and layout */
     width: 100%; /* Full width of the column */
 }
