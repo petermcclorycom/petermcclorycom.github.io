@@ -23,7 +23,7 @@ function openModal(imageSrc) {
     }
 }
 
-// Set up closeButton event listener outside the openModal function
+// Set up closeButton event listener
 var closeButton = document.getElementsByClassName("close")[0];
 closeButton.onclick = function() {
     var modal = document.getElementById("myModal");
@@ -34,13 +34,7 @@ closeButton.onclick = function() {
     }, 300);
 };
 
-function spinAndRevealText(containerElement) {
-    if (window.innerWidth <= 480) { // Check if the device is likely a mobile device
-        containerElement.classList.add('spin'); // Add class to trigger the animation
-    }
-}
-
-// Separated event listener for closing the modal by clicking outside
+// Event listener for closing the modal by clicking outside
 window.onclick = function(event) {
     var modal = document.getElementById("myModal");
     if (event.target === modal) {
