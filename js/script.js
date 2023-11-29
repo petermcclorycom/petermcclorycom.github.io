@@ -27,6 +27,7 @@ function openModal(imageSrc) {
         }
     };
 }
+}
 
 function spinAndRevealText(containerElement) {
     if (window.innerWidth <= 480) { // Check if the device is likely a mobile device
