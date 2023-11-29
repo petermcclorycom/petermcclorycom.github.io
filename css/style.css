@@ -6,17 +6,23 @@ body {
 }
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 10px; /* Adjust or remove this if needed */
-    padding: 0; /* Remove padding to reduce space */
+    column-count: 4; /* Number of columns */
+    column-gap: 15px; /* Spacing between columns */
+    padding: 15px; /* Padding around the gallery */
+    max-width: 100%; /* Maximum width */
+}
+
+.gallery-item {
+    break-inside: avoid; /* Prevents breaking within an item */
+    margin-bottom: 15px; /* Spacing below each item */
+    display: inline-block; /* Ensures proper spacing and layout */
+    width: 100%; /* Full width of the column */
 }
 
 .gallery-item img {
     width: 100%;
     border-radius: 15px;
     display: block; /* Ensures no extra space below images */
-    margin-bottom: -5px; /* Negative margin to reduce vertical space */
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -25,9 +31,12 @@ body {
 
 @media screen and (max-width: 1920px) {
     .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        column-count: 5; /* Adjust the number of columns for wide screens */
     }
 }
+
+/* ... Additional media queries for responsiveness ... */
+
 
 .gallery-item img:hover {
     transform: scale(1.05);
