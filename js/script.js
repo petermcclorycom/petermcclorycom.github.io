@@ -1,7 +1,8 @@
 var modalOpen = false; // Declare this variable outside the function
+var cooldown = false; // Add a cooldown variable
 
 function openModal(imageSrc) {
-    if (modalOpen) return; // Prevent opening if modal is already open or in cooldown
+    if (modalOpen || cooldown) return; // Prevent opening if modal is already open or in cooldown
 
     var modal = document.getElementById("myModal");
     var modalImg = document.getElementById("img01");
@@ -16,18 +17,19 @@ function openModal(imageSrc) {
     closeButton.onclick = function() {
         modal.style.display = "none";
         modalOpen = false;
-        // Delay before allowing modal to be reopened
+        cooldown = true; // Start cooldown
         setTimeout(function() {
-            modalOpen = true;
-        }, 300); // 300 milliseconds delay
+            cooldown = false; // End cooldown after 300 milliseconds
+        }, 300);
     };
 
     // Touch event for mobile devices
     closeButton.ontouchstart = function() {
         modal.style.display = "none";
         modalOpen = false;
+        cooldown = true; // Start cooldown
         setTimeout(function() {
-            modalOpen = true;
+            cooldown = false; // End cooldown after 300 milliseconds
         }, 300);
     };
 }
@@ -38,6 +40,10 @@ window.onclick = function(event) {
     if (event.target === modal) {
         modal.style.display = "none";
         modalOpen = false;
+        cooldown = true; // Start cooldown
+        setTimeout(function() {
+            cooldown = false; // End cooldown after 300 milliseconds
+        }, 300);
     }
 };
 
