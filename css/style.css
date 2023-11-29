@@ -72,14 +72,14 @@ body {
 
 /* Responsive Layout Adjustments */
 /* Medium screens (e.g., tablets) - 3 columns */
-@media screen and (min-width: 801px) and (max-width: 1024px) {
+@media screen and (min-width: 741px) and (max-width: 900px) {
     .gallery {
         column-count: 3;
     }
 }
 
 /* Larger screens - 4 columns */
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 901px) {
     .gallery {
         column-count: 4;
     }
