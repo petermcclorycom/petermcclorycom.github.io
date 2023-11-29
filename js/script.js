@@ -32,12 +32,6 @@ function openModal(imageSrc) {
     };
 }
 
-function spinAndRevealText(containerElement) {
-    if (window.innerWidth <= 480) { // Check if the device is likely a mobile device
-        containerElement.classList.add('spin'); // Add class to trigger the animation
-    }
-}
-
 // Separated event listener for closing the modal by clicking outside
 window.onclick = function(event) {
     var modal = document.getElementById("myModal");
