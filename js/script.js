@@ -1,3 +1,5 @@
+var modalOpen = false; // Declare this variable outside the function
+
 function openModal(imageSrc) {
     if (window.innerWidth > 480) { // Only open modal on non-mobile devices
         var modal = document.getElementById("myModal");
@@ -8,26 +10,29 @@ function openModal(imageSrc) {
         modalImg.src = imageSrc;
         captionText.innerHTML = imageSrc.split('/').pop();
 
-    closeButton.onclick = function() {
-        modal.style.display = "none";
-        modalOpen = false;
-        // Delay before allowing modal to be reopened
-        setTimeout(function() {
-            modalOpen = true;
-        }, 300); // 300 milliseconds delay
-    };
+        modalImg.onload = function() {
+            if (modalImg.naturalWidth > modalImg.naturalHeight) {
+                modalImg.style.height = 'auto';
+                modalImg.style.width = '100%';
+            } else {
+                modalImg.style.width = 'auto';
+                modalImg.style.height = '100%';
+            }
+        };
+        modalOpen = true; // Set the modal as open
+    }
+}
 
-    modalImg.onload = function() {
-        if (modalImg.naturalWidth > modalImg.naturalHeight) {
-            modalImg.style.height = 'auto';
-            modalImg.style.width = '100%';
-        } else {
-            modalImg.style.width = 'auto';
-            modalImg.style.height = '100%';
-        }
-    };
-}
-}
+// Set up closeButton event listener outside the openModal function
+var closeButton = document.getElementsByClassName("close")[0];
+closeButton.onclick = function() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+    modalOpen = false;
+    setTimeout(function() {
+        modalOpen = true;
+    }, 300);
+};
 
 function spinAndRevealText(containerElement) {
     if (window.innerWidth <= 480) { // Check if the device is likely a mobile device
@@ -35,11 +40,12 @@ function spinAndRevealText(containerElement) {
     }
 }
 
-// Separated event listener for closing the modal
+// Separated event listener for closing the modal by clicking outside
 window.onclick = function(event) {
     var modal = document.getElementById("myModal");
     if (event.target === modal) {
         modal.style.display = "none";
+        modalOpen = false;
     }
 };
 
