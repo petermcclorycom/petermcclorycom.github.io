@@ -42,6 +42,7 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.9);
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -49,7 +50,7 @@ body {
 .modal-content {
     max-height: 100%;
     max-width: 100%;
-    object-fit: contain; /* Ensures the image is contained within its dimensions */
+    object-fit: contain;
 }
 
 .close {
@@ -70,21 +71,18 @@ body {
 }
 
 /* Responsive Layout Adjustments */
-/* Medium screens (e.g., tablets) - 3 columns */
 @media screen and (min-width: 741px) and (max-width: 900px) {
     .gallery {
         column-count: 3;
     }
 }
 
-/* Larger screens - 4 columns */
 @media screen and (min-width: 901px) {
     .gallery {
         column-count: 4;
     }
 }
 
-/* Very Large screens - 5 columns */
 @media screen and (min-width: 1400px) {
     .gallery {
         column-count: 5;
@@ -95,37 +93,47 @@ body {
 footer {
     position: sticky;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Black with 40% opacity */
+    background-color: rgba(0, 0, 0, 0.4);
     color: white;
     text-align: center;
-    line-height: 7vh; /* 7% of the viewport height */
+    line-height: 7vh;
     height: 7vh;
 }
 
 .image-container {
-    perspective: 1000px; /* Needed for 3D effect */
-    cursor: pointer; /* Optional, for a better user experience */
+    perspective: 1000px;
+    position: relative;
+    cursor: pointer;
 }
 
 .image-container img, .image-container .description-text {
-    transition: transform 0.5s, opacity 0.5s; /* Animation duration */
-    backface-visibility: hidden; /* Essential for the 3D spin */
-    position: absolute; /* Align image and text */
-    width: 100%; /* Match the parent's size */
+    transition: transform 0.5s, opacity 0.5s;
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 .image-container .description-text {
-    transform: rotateY(180deg); /* Initially rotated */
-    opacity: 0; /* Initially invisible */
-    font-size: 2em; /* Large text */
-    /* Additional styling for text alignment and appearance */
+    transform: rotateY(180deg);
+    opacity: 0;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7); /* Optional: for better readability */
+    color: white; /* Optional: text color */
+    padding: 10px; /* Optional: for text padding */
 }
 
 .image-container.spin .description-text {
-    transform: rotateY(0); /* Rotate to show text */
-    opacity: 1; /* Make text visible */
+    transform: rotateY(0);
+    opacity: 1;
 }
 
 .image-container.spin img {
-    transform: rotateY(-180deg); /* Rotate image to hide */
+    transform: rotateY(-180deg);
 }
