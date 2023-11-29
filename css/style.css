@@ -91,3 +91,14 @@ body {
         column-count: 5;
     }
 }
+
+/* Footer Styles */
+footer {
+    position: sticky;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 10vh; /* 10% of the viewport height */
+    height: 10vh;
+}

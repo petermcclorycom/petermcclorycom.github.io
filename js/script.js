@@ -14,3 +14,12 @@ function openModal(imageSrc) {
         }
     }
 }
+
+// Function to update the current year in the footer
+function updateYear() {
+    var currentYear = new Date().getFullYear();
+    document.getElementById('currentYear').textContent = currentYear;
+}
+
+// Call the function when the page loads
+updateYear();
