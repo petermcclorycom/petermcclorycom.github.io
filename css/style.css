@@ -99,9 +99,19 @@ footer {
     height: 7vh;
 }
 
+/* Default style: hide description text */
 .description-text {
-    font-size: 2em;
+    display: none;
+    font-size: 1em;
     margin-top: 10px; /* Space between image and text */
     color: black; /* Text color */
     /* Other styling as needed */
+}
+
+/* Media query to show description text on mobile screens */
+@media (max-width: 768px) { /* Adjust the max-width as needed */
+    .description-text {
+        display: block;
+        /* Add any styles you want for the mobile view */
+    }
 }
