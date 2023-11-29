@@ -2,11 +2,21 @@ function openModal(imageSrc) {
     var modal = document.getElementById("myModal");
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
+    var closeButton = document.getElementsByClassName("close")[0];
 
     modal.style.display = "flex";
-    modalImg.src = ""; // Reset the image source
     modalImg.src = imageSrc;
     captionText.innerHTML = imageSrc.split('/').pop();
+
+    // Event listener for the close button (click)
+    closeButton.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // Additional event listener for touch events
+    closeButton.ontouchstart = function() {
+        modal.style.display = "none";
+    };
 
     modalImg.onload = function() {
         if (modalImg.naturalWidth > modalImg.naturalHeight) {
