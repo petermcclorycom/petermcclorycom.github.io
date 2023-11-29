@@ -8,15 +8,25 @@ body {
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 10px;
-    padding: 10px;
+    grid-gap: 10px; /* Adjust or remove this if needed */
+    padding: 0; /* Remove padding to reduce space */
 }
 
 .gallery-item img {
     width: 100%;
     border-radius: 15px;
+    display: block; /* Ensures no extra space below images */
+    margin-bottom: -5px; /* Negative margin to reduce vertical space */
     cursor: pointer;
     transition: transform 0.3s ease;
+}
+
+/* ... Rest of your CSS ... */
+
+@media screen and (max-width: 1920px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
 }
 
 .gallery-item img:hover {
