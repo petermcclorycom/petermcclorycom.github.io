@@ -1,17 +1,12 @@
-var modalOpen = false;
-
 function openModal(imageSrc) {
-    if (modalOpen) return; // Prevent opening if modal is already open or in cooldown
+    if (window.innerWidth > 480) { // Only open modal on non-mobile devices
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
 
-    var modal = document.getElementById("myModal");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    var closeButton = document.getElementsByClassName("close")[0];
-
-    modal.style.display = "flex";
-    modalImg.src = imageSrc;
-    captionText.innerHTML = imageSrc.split('/').pop();
-    modalOpen = true; // Set modal as open
+        modal.style.display = "flex";
+        modalImg.src = imageSrc;
+        captionText.innerHTML = imageSrc.split('/').pop();
 
     closeButton.onclick = function() {
         modal.style.display = "none";
@@ -20,15 +15,6 @@ function openModal(imageSrc) {
         setTimeout(function() {
             modalOpen = true;
         }, 300); // 300 milliseconds delay
-    };
-
-    // Touch event for mobile devices
-    closeButton.ontouchstart = function() {
-        modal.style.display = "none";
-        modalOpen = false;
-        setTimeout(function() {
-            modalOpen = true;
-        }, 300);
     };
 
     modalImg.onload = function() {
@@ -40,6 +26,12 @@ function openModal(imageSrc) {
             modalImg.style.height = '100%';
         }
     };
+}
+
+function spinAndRevealText(containerElement) {
+    if (window.innerWidth <= 480) { // Check if the device is likely a mobile device
+        containerElement.classList.add('spin'); // Add class to trigger the animation
+    }
 }
 
 // Separated event listener for closing the modal

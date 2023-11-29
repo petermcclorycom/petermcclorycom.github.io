@@ -101,3 +101,31 @@ footer {
     line-height: 7vh; /* 7% of the viewport height */
     height: 7vh;
 }
+
+.image-container {
+    perspective: 1000px; /* Needed for 3D effect */
+    cursor: pointer; /* Optional, for a better user experience */
+}
+
+.image-container img, .image-container .description-text {
+    transition: transform 0.5s, opacity 0.5s; /* Animation duration */
+    backface-visibility: hidden; /* Essential for the 3D spin */
+    position: absolute; /* Align image and text */
+    width: 100%; /* Match the parent's size */
+}
+
+.image-container .description-text {
+    transform: rotateY(180deg); /* Initially rotated */
+    opacity: 0; /* Initially invisible */
+    font-size: 2em; /* Large text */
+    /* Additional styling for text alignment and appearance */
+}
+
+.image-container.spin .description-text {
+    transform: rotateY(0); /* Rotate to show text */
+    opacity: 1; /* Make text visible */
+}
+
+.image-container.spin img {
+    transform: rotateY(-180deg); /* Rotate image to hide */
+}
