@@ -14,42 +14,56 @@ header {
 
 .gallery {
     margin: 0 auto; /* Center the gallery */
-  }
-  
-  .gallery-item {
-    margin-bottom: 10px; /* Space at the bottom of each item */
-  }
-  
-  .gallery-item img {
-    width: 100%; /* Ensure the image fills the item */
-    display: block; /* Remove extra space beneath the image */
-  }
+}
 
-.gallery-item .description {
+.gallery-item {
+    margin-bottom: 10px; /* Space at the bottom of each item */
+    background-color: black; /* Initial background color */
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+    transition: background-color 0.3s ease-out;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.description {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: calc(100% - 40px); /* Account for margin */
+    height: calc(100% - 40px); /* Account for margin */
     transform: translate(-50%, -50%) rotateY(180deg);
     transform-origin: center;
-    opacity: 0; /* Initially hidden */
-    color: black;
+    opacity: 0; /* Hidden initially */
+    background-color: transparent; /* Start with a transparent background */
+    padding: 20px;
+    margin: 20px;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease-out, background-color 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     font-style: italic;
     font-family: 'Brush Script MT', cursive;
-    padding: 20px;
-    margin: 20px;
-    background-color: transparent; /* Initially transparent */
+    color: black; /* Text color */
 }
 
 .gallery-item:hover {
-    background-color: white; /* Change background to white on hover */
-}
-
-.gallery-item:hover img {
-    transform: rotateY(-180deg);
+    background-color: white; /* Background transition on hover */
 }
 
 .gallery-item:hover .description {
     opacity: 1; /* Show description after spin */
-    transform: translate(-50%, -50%) rotateY(0deg);
+    background-color: white; /* Background fades to white */
+    transform: translate(-50%, -50%) rotateY(0deg); /* Complete the rotation */
 }
