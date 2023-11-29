@@ -34,12 +34,12 @@ body {
 }
 
 .gallery-item:hover img {
-    opacity: 0.3; /* Reduce opacity of the hovered image */
+    /*opacity: 0.3; Reduce opacity of the hovered image */
 }
 
 /* Reset opacity for non-hovered images */
 .gallery-item img:not(:hover) {
-    opacity: 1;
+    /*opacity: 1;*/
 }
 
 /* Modal Image Gallery */
