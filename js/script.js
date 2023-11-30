@@ -23,7 +23,6 @@ function openModal(imageSrc) {
         }, 300);
     };
 
-    // Touch event for mobile devices
     closeButton.ontouchstart = function() {
         modal.style.display = "none";
         modalOpen = false;
@@ -34,7 +33,6 @@ function openModal(imageSrc) {
     };
 }
 
-// Separated event listener for closing the modal by clicking outside
 window.onclick = function(event) {
     var modal = document.getElementById("myModal");
     if (event.target === modal) {
@@ -54,26 +52,26 @@ function updateYear() {
 
 updateYear();
 
-// Get all gallery images
 const galleryImages = document.querySelectorAll('.gallery-item img');
 
-// Add mouseenter event listener to each image
 galleryImages.forEach((image) => {
     image.addEventListener('mouseenter', () => {
-        // Reduce opacity for all other images
+        image.style.transition = 'opacity 0.5s, transform 0.5s';
+        image.style.opacity = 1;
+        image.style.transform = 'scale(1.5)'; // Scale up by 1.5x
+
         galleryImages.forEach((otherImage) => {
             if (otherImage !== image) {
                 otherImage.style.opacity = 0.2;
+                otherImage.style.transform = 'scale(0.1)'; // Scale down other images to 0.1x
             }
         });
     });
 
-    // Add mouseleave event listener to each image to reset opacity
     image.addEventListener('mouseleave', () => {
-        // Reset opacity for all images
         galleryImages.forEach((otherImage) => {
             otherImage.style.opacity = 1;
+            otherImage.style.transform = 'scale(1)'; // Reset scale to original
         });
     });
 });
-
