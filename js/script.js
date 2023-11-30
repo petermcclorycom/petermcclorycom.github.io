@@ -53,3 +53,27 @@ function updateYear() {
 }
 
 updateYear();
+
+// Get all gallery images
+const galleryImages = document.querySelectorAll('.gallery-item img');
+
+// Add mouseenter event listener to each image
+galleryImages.forEach((image) => {
+    image.addEventListener('mouseenter', () => {
+        // Reduce opacity for all other images
+        galleryImages.forEach((otherImage) => {
+            if (otherImage !== image) {
+                otherImage.style.opacity = 0.2;
+            }
+        });
+    });
+
+    // Add mouseleave event listener to each image to reset opacity
+    image.addEventListener('mouseleave', () => {
+        // Reset opacity for all images
+        galleryImages.forEach((otherImage) => {
+            otherImage.style.opacity = 1;
+        });
+    });
+});
+

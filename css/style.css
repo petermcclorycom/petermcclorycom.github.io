@@ -9,14 +9,14 @@ body {
 
 .gallery {
     column-count: 1; /* Default for mobile sizes */
-    column-gap: 15px; /* Spacing between columns */
+    column-gap: 45px; /* Adjusted spacing between columns (three times more space) */
     padding: 15px; /* Padding around the gallery */
     max-width: 100%; /* Maximum width */
 }
 
 .gallery-item {
     break-inside: avoid; /* Prevents breaking within an item */
-    margin-bottom: 15px; /* Spacing below each item */
+    margin-bottom: 45px; /* Adjusted spacing below each item (three times more space) */
     display: inline-block; /* Ensures proper spacing and layout */
     width: 100%; /* Full width of the column */
 }
@@ -26,11 +26,20 @@ body {
     border-radius: 15px;
     display: block; /* Ensures no extra space below images */
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .gallery-item img:hover {
-    transform: scale(1.05);
+    transform: scale(1.25);
+}
+
+.gallery-item:hover img {
+    /*opacity: 0.3; Reduce opacity of the hovered image */
+}
+
+/* Reset opacity for non-hovered images */
+.gallery-item img:not(:hover) {
+    /*opacity: 1;*/
 }
 
 /* Modal Image Gallery */
